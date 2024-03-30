@@ -5,6 +5,21 @@
   padding: 15px;
   border-radius: 20px;
 }
+
+.editForm {
+  display: flex;
+  flex-direction: column;
+  border-radius: 20px;
+}
+
+.btnWrapper {
+  display: flex;
+  gap: 10px;
+  margin-top: 15px;
+  justify-content: center;
+}
+
+
 .nameLabel {
 }
 .nameInput,
@@ -38,4 +53,7 @@
 .error {
   font-size: 10px;
   color: red;
+}
+
+.content {
 }

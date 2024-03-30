@@ -1,0 +1,13 @@
+.logoutBtn{
+    border-radius: 20px;
+    padding: 10px 20px;
+    align-self: center;
+    border: transparent;
+    outline: transparent;
+    background-color: rgba(125, 125, 125, 0.135);
+    transition: background-color 0.5s cubic-bezier(0.075, 0.82, 0.165);
+}
+
+.logoutBtn:hover {
+    background-color: rgba(125, 125, 125, 0.565);
+}

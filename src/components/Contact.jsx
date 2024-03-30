@@ -6,46 +6,45 @@ import { deleteContact } from "../redux/contacts/operations";
 import toast from "react-hot-toast";
 import { useState } from "react";
 import Modal from "react-modal";
+import EditForm from "./EditForm";
 
 Modal.setAppElement("#root");
-
-// const customStyles = {
-//   content: {
-//     top: '50%',
-//     left: '50%',
-//     right: 'auto',
-//     bottom: 'auto',
-//     marginRight: '-50%',
-//     transform: 'translate(-50%, -50%)',
-//     borderRadius: '20px',
-
-//   },
-//   overlay: {
-
-//     backgroundColor: 'black'
-//   }
-// };
 
 const Contact = ({ contact }) => {
   const dispatch = useDispatch();
   const [isModalOpen, setIsModalOpen] = useState(false);
-
+  const [isModalEditOpen, setIsModalEditOpen] = useState(false);
   const handleDelete = () => {
     dispatch(deleteContact(contact.id))
       .unwrap()
       .then(() => toast("Contact deleted"));
   };
+
   return (
     <>
       <div>
+        <Modal
+          className={css.content}
+          isOpen={isModalEditOpen}
+          shouldCloseOnOverlayClick={true}
+          onRequestClose={() => setIsModalEditOpen(false)}
+        >
+          <EditForm
+            fullContact={contact}
+            setIsModalEditOpen={setIsModalEditOpen}
+          />
+        </Modal>
+
         <Modal
           className={css.content}
           isOpen={isModalOpen}
           shouldCloseOnOverlayClick={true}
           onRequestClose={() => setIsModalOpen(false)}
         >
-          <div>
-            <b className={css.modalText}>Are you sure you want to delete the contact?</b>
+          <div className={css.deleteModal}>
+            <b className={css.modalText}>
+              Are you sure you want to delete the contact?
+            </b>
             <div className={css.btnWrapper}>
               <button type="button" onClick={handleDelete}>
                 Yes
@@ -65,12 +64,20 @@ const Contact = ({ contact }) => {
           <p>{contact.number}</p>
         </div>
       </div>
-      <button
-        onClick={() => setIsModalOpen(true)}
-        className={css.contactButton}
-      >
-        Delete
-      </button>
+      <div className={css.btnWrapper}>
+        <button
+          className={css.contactButton}
+          onClick={() => setIsModalEditOpen(true)}
+        >
+          Edit
+        </button>
+        <button
+          onClick={() => setIsModalOpen(true)}
+          className={css.contactButton}
+        >
+          Delete
+        </button>
+      </div>
     </>
   );
 };

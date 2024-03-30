@@ -7,6 +7,7 @@ const SearchBox = () => {
   const findInputId = useId();
   const dispatch = useDispatch();
   const name = useSelector(selectNameFilter);
+  
   const handleSearch = (e) => {
     dispatch(changeFilter(e.target.value));
   };
