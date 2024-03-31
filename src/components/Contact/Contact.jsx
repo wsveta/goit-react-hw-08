@@ -2,11 +2,11 @@ import { IoPersonSharp } from "react-icons/io5";
 import { FaPhone } from "react-icons/fa6";
 import css from "./Contact.module.css";
 import { useDispatch } from "react-redux";
-import { deleteContact } from "../redux/contacts/operations";
+import { deleteContact } from "../../redux/contacts/operations";
 import toast from "react-hot-toast";
 import { useState } from "react";
 import Modal from "react-modal";
-import EditForm from "./EditForm";
+import EditForm from "../EditForm";
 
 Modal.setAppElement("#root");
 

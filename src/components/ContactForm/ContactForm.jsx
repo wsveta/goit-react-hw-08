@@ -4,7 +4,7 @@ import { Form, Formik, Field } from "formik";
 import * as Yup from "yup";
 import { ErrorMessage } from "formik";
 import { useDispatch } from "react-redux";
-import { addContact } from "../redux/contacts/operations";
+import { addContact } from "../../redux/contacts/operations";
 import toast from "react-hot-toast";
 
 const initialValues = { name: "", number: "" };
