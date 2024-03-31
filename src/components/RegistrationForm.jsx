@@ -1,10 +1,9 @@
 import { Formik, Form, Field, ErrorMessage } from "formik";
-import css from "./RegisterForm.module.css";
-import { useDispatch, useSelector } from "react-redux";
+import css from "./RegistrationForm.module.css";
+import { useDispatch } from "react-redux";
 import {register} from "../redux/auth/operations"
-import { selectUser } from "../redux/auth/selectors";
 
-const RegisterForm = () => {
+const RegistrationForm = () => {
   const dispatch = useDispatch();
   const handleSubmit = (value, actions) => {
     dispatch(register(value));
@@ -52,4 +51,4 @@ const RegisterForm = () => {
   );
 };
 
-export default RegisterForm;
+export default RegistrationForm;
